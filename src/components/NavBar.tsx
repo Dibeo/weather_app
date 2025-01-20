@@ -1,7 +1,8 @@
-import React, {  } from 'react';
+import React from 'react';
 import { Navbar as BootstrapNavbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation } from 'react-router-dom';
+import LanguageIcon from '@mui/icons-material/Language'; // Import de l'icône
 import '../styles/Components/NavBar.css';
 
 const Navbar: React.FC = () => {
@@ -32,7 +33,7 @@ const Navbar: React.FC = () => {
             <Nav.Link href="#location">{t('location')}</Nav.Link>
           </Nav>
           <Nav>
-            <NavDropdown title={t('language')} id="language-dropdown">
+            <NavDropdown title={<LanguageIcon />} id="language-dropdown">
               {languages.map((language) => (
                 <NavDropdown.Item
                   key={language.code}
