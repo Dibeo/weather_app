@@ -1,38 +1,23 @@
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import Backend from 'i18next-http-backend';
+import LanguageDetector from 'i18next-browser-languagedetector';
 
 i18n
+  .use(Backend) // Charge les traductions depuis des fichiers public
+  .use(LanguageDetector) // Détecte automatiquement la langue du navigateur
   .use(initReactI18next)
   .init({
-    fallbackLng: "en",
-    lng: "fr", 
-    debug: true,
+    fallbackLng: 'en', // Langue par défaut si aucune n'est détectée
+    debug: false, // Active les logs pour le débogage
     interpolation: {
       escapeValue: false,
     },
-    react: {
-      useSuspense: false,
+    backend: {
+      loadPath: '/lang/{{lng}}/{{ns}}.json',
     },
-    resources: {
-      en: {
-        translation: {
-          welcome: "Welcome",
-          description: "This is the English version.",
-        },
-      },
-      fr: {
-        translation: {
-          welcome: "Bienvenue",
-          description: "Ceci est la version française.",
-        },
-      },
-      es: {
-        translation: {
-          welcome: "Bienvenido",
-          description: "Esta es la versión en español.",
-        },
-      },
-    },
+    ns: ['translation'],
+    defaultNS: 'translation',
   });
 
 export default i18n;

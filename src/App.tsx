@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect } from "react";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import Weather from "./pages/Weather";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App: React.FC = () => {
+  const { i18n } = useTranslation();
+  const location = useLocation();
+
+  // Effet pour gérer la langue en fonction du chemin dans l'URL
+  useEffect(() => {
+    const path = location.pathname.split("/")[1];
+    switch (path) {
+      case "en": {
+        i18n.changeLanguage("en");
+        break;
+      }
+      case "fr": {
+        i18n.changeLanguage("fr");
+        break;
+      }
+      default: {
+        i18n.changeLanguage("fr");
+      }
+    }
+  }, [location, i18n]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Routes>
+      <Route path="/" element={<Navigate to="/fr" />} />
+      <Route path="/fr" element={<Weather />} />
+      <Route path="/en" element={<Weather />} />
+    </Routes>
+  );
+};
 
-export default App
+export default App;
