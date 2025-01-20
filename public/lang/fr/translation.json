@@ -1,8 +1,7 @@
 {
-    "title": "Bienvenue",
+    "title": "Météo",
     "description": "Ceci est un exemple simple.",
     "current": "Météo Actuelle",
-  "forecast": "Prévisions",
-  "location": "Localisation"
-  }
-  
+    "forecast": "Prévisions",
+    "location": "Localisation"
+}

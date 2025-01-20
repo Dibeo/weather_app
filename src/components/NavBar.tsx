@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
-import { AppBar, Toolbar, Typography, Button, Menu, MenuItem, IconButton, Box } from '@mui/material';
-import { Language } from '@mui/icons-material';
-import { Container } from 'react-bootstrap';
+import React, {  } from 'react';
+import { Navbar as BootstrapNavbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation } from 'react-router-dom';
+import '../styles/Components/NavBar.css';
 
 const Navbar: React.FC = () => {
   const { i18n, t } = useTranslation();
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -16,65 +14,43 @@ const Navbar: React.FC = () => {
     { code: 'en', label: 'English', flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f2/Flag_of_Great_Britain_%281707%E2%80%931800%29.svg' },
   ];
 
-  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
-
   const handleLanguageChange = (languageCode: string) => {
     i18n.changeLanguage(languageCode);
     const currentPath = location.pathname.split('/').slice(2).join('/');
     navigate(`/${languageCode}/${currentPath}`);
-    handleMenuClose();
   };
 
   return (
-    <AppBar position="sticky">
+    <BootstrapNavbar expand="lg" className="glassmorphic-navbar" sticky="top">
       <Container>
-        <Toolbar>
-          <Typography variant="h6" style={{ flexGrow: 1 }}>
-            {t("title")}
-          </Typography>
-          <Button color="inherit" href="#current">{t("current")}</Button>
-          <Button color="inherit" href="#forecast">{t("forecast")}</Button>
-          <Button color="inherit" href="#location">{t("location")}</Button>
-
-          <IconButton
-            color="inherit"
-            onClick={handleMenuOpen}
-            aria-controls="language-menu"
-            aria-haspopup="true"
-          >
-            <Language />
-          </IconButton>
-          <Menu
-            id="language-menu"
-            anchorEl={anchorEl}
-            open={Boolean(anchorEl)}
-            onClose={handleMenuClose}
-          >
-            {languages.sort((a, b) => a.label.localeCompare(b.label)).map((language) => (
-              <MenuItem
-                key={language.code}
-                onClick={() => handleLanguageChange(language.code)}
-              >
-                <Box display="flex" alignItems="center" gap={1}>
+        <BootstrapNavbar.Brand href="#home">{t('title')}</BootstrapNavbar.Brand>
+        <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
+        <BootstrapNavbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#current">{t('current')}</Nav.Link>
+            <Nav.Link href="#forecast">{t('forecast')}</Nav.Link>
+            <Nav.Link href="#location">{t('location')}</Nav.Link>
+          </Nav>
+          <Nav>
+            <NavDropdown title={t('language')} id="language-dropdown">
+              {languages.map((language) => (
+                <NavDropdown.Item
+                  key={language.code}
+                  onClick={() => handleLanguageChange(language.code)}
+                >
                   <img
                     src={language.flag}
                     alt={`${language.label} flag`}
-                    style={{ width: '20px', height: '15px' }}
+                    style={{ width: '20px', height: '15px', marginRight: '10px' }}
                   />
                   {language.label}
-                </Box>
-              </MenuItem>
-            ))}
-          </Menu>
-        </Toolbar>
+                </NavDropdown.Item>
+              ))}
+            </NavDropdown>
+          </Nav>
+        </BootstrapNavbar.Collapse>
       </Container>
-    </AppBar>
+    </BootstrapNavbar>
   );
 };
 

@@ -3,6 +3,7 @@ import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Weather from "./pages/Weather";
 import Navbar from "./components/NavBar";
+import "./styles/App.css"
 
 const App: React.FC = () => {
   const { i18n } = useTranslation();

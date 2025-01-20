@@ -1,0 +1,30 @@
+.glassmorphic-navbar {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+  }
+  
+  .glassmorphic-navbar .navbar-brand,
+  .glassmorphic-navbar .nav-link,
+  .glassmorphic-navbar .dropdown-item {
+    color: white !important;
+    font-weight: 500;
+  }
+  
+  .glassmorphic-navbar .nav-link:hover,
+  .glassmorphic-navbar .dropdown-item:hover {
+    color: #ffd700 !important;
+  }
+  
+  .glassmorphic-navbar .nav-dropdown-item img {
+    margin-right: 10px;
+  }
+  
+  @media (max-width: 992px) {
+    .glassmorphic-navbar {
+      border-radius: 0;
+    }
+  }
+  
