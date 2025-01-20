@@ -1,0 +1,41 @@
+.card-glassmorphism {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    margin-top: 15px;
+  }
+  
+  .card-body-glassmorphism {
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+  }
+  
+  .card-title-glassmorphism {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .card-text-glassmorphism {
+    font-size: 1.1rem;
+    color: #fff;
+  }
+  
+  .weather-icon {
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .loading-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
