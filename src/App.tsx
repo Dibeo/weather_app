@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Weather from "./pages/Weather";
+import Navbar from "./components/NavBar";
 
 const App: React.FC = () => {
   const { i18n } = useTranslation();
@@ -26,11 +27,14 @@ const App: React.FC = () => {
   }, [location, i18n]);
 
   return (
-    <Routes>
-      <Route path="/" element={<Navigate to="/fr" />} />
-      <Route path="/fr" element={<Weather />} />
-      <Route path="/en" element={<Weather />} />
-    </Routes>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Navigate to="/fr" />} />
+        <Route path="/fr" element={<Weather />} />
+        <Route path="/en" element={<Weather />} />
+      </Routes>
+    </>
   );
 };
 

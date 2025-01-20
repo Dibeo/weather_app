@@ -1,5 +1,8 @@
 {
-    "welcome": "Bienvenue",
-    "description": "Ceci est un exemple simple."
+    "title": "Bienvenue",
+    "description": "Ceci est un exemple simple.",
+    "current": "Météo Actuelle",
+  "forecast": "Prévisions",
+  "location": "Localisation"
   }
   

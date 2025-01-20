@@ -1,5 +1,7 @@
 {
-    "welcome": "Welcome",
-    "description": "This is a simple example."
-  }
-  
+    "title": "Weather",
+    "description": "This is a simple example.",
+    "current": "Current Weather",
+    "forecast": "Forecast",
+    "location": "Location"
+}
