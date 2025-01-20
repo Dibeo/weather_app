@@ -48,8 +48,9 @@ const Navbar: React.FC = () => {
           </Nav>
           <Dropdown>
             <Dropdown.Toggle
-              variant="secondary"
+              variant="transparent"
               id="dropdown-custom-components"
+              style={{color:'white'}}
             >
               <LanguageIcon />
             </Dropdown.Toggle>
