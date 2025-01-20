@@ -1,18 +1,17 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-// Configuration des traductions locales pour différentes langues
 i18n
-  .use(initReactI18next) // connecte i18next à React
+  .use(initReactI18next)
   .init({
-    fallbackLng: "fr", // langue par défaut si la langue actuelle n'est pas trouvée
-    lng: "fr", // langue initiale
-    debug: true, // permet de voir les logs dans la console
+    fallbackLng: "en",
+    lng: "fr", 
+    debug: true,
     interpolation: {
-      escapeValue: false, // éviter l'échappement des variables
+      escapeValue: false,
     },
     react: {
-      useSuspense: false, // pas de suspense avec les traductions
+      useSuspense: false,
     },
     resources: {
       en: {
