@@ -3,28 +3,17 @@ import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Weather from "./pages/Weather";
 import Navbar from "./components/NavBar";
-import "./styles/App.css"
+import "./styles/App.css";
 
 const App: React.FC = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const location = useLocation();
 
   // Effet pour gérer la langue en fonction du chemin dans l'URL
   useEffect(() => {
     const path = location.pathname.split("/")[1];
-    switch (path) {
-      case "en": {
-        i18n.changeLanguage("en");
-        break;
-      }
-      case "fr": {
-        i18n.changeLanguage("fr");
-        break;
-      }
-      default: {
-        i18n.changeLanguage("fr");
-      }
-    }
+    i18n.changeLanguage(path);
+    document.title = t("title");
   }, [location, i18n]);
 
   return (
