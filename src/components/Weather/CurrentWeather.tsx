@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Container, Card, CardBody, CardTitle, CardText } from "react-bootstrap";
 import { CircularProgress, Typography } from "@mui/material";
-import "../../styles/Components/Weather/WeatherCard.css"
 
 interface WeatherData {
   name: string;
@@ -42,7 +41,7 @@ const CurrentWeather: React.FC = () => {
       const fetchWeather = async () => {
         try {
           const weatherResponse = await fetch(
-            `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric&lang=fr`
+            `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric&lang=${"fr"}`
           );
           const weatherData: WeatherData = await weatherResponse.json();
           setWeather(weatherData);
@@ -63,7 +62,7 @@ const CurrentWeather: React.FC = () => {
 
   if (loading) {
     return (
-      <Container className="loading-container">
+      <Container className="card-glassmorphism">
         <CircularProgress />
         <Typography variant="h6" gutterBottom>
           Chargement de la météo...
