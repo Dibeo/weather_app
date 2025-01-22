@@ -3,5 +3,10 @@
     "description": "Ceci est un exemple simple.",
     "current": "Météo Actuelle",
     "forecast": "Prévisions",
-    "location": "Localisation"
+    "location": "Localisation",
+    "loading_forecast": "Chargement des prévisions",
+    "weather_forecast": "Prévisions Météo",
+    "today": "Aujourd'hui",
+    "tomorrow": "Demain",
+    "weather_icon_alt": "Icône Météo"
 }

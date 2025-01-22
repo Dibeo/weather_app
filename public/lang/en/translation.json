@@ -3,5 +3,10 @@
     "description": "This is a simple example.",
     "current": "Current Weather",
     "forecast": "Forecast",
-    "location": "Location"
+    "location": "Location",
+    "loading_forecast": "Loading forecast",
+    "weather_forecast": "Weather forecast",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "weather_icon_alt": "Weather Icon"
 }
