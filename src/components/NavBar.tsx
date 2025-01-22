@@ -20,6 +20,7 @@ const Navbar: React.FC = () => {
     i18n.changeLanguage(languageCode);
     const currentPath = location.pathname.split("/").slice(2).join("/");
     navigate(`/${languageCode}/${currentPath}`);
+    window.location.reload();
   };
 
   return (

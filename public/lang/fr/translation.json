@@ -9,5 +9,8 @@
     "weather_forecast": "Prévisions Météo",
     "today": "Aujourd'hui",
     "tomorrow": "Demain",
-    "weather_icon_alt": "Icône Météo"
+    "weather_icon_alt": "Icône Météo",
+    "no_location": "La geolocalisation est impossible et/ou bloquer.",
+    "error" : "Erreur",
+    "loc_on_going" : "Localisation en cours"
 }

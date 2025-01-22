@@ -9,5 +9,8 @@
     "weather_forecast": "Weather forecast",
     "today": "Today",
     "tomorrow": "Tomorrow",
-    "weather_icon_alt": "Weather Icon"
+    "weather_icon_alt": "Weather Icon",
+    "no_location":"Geolocation is not supported or allowed.",
+    "error": "Error",
+    "loc_on_going" : "Location on going"
 }
