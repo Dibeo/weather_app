@@ -2,13 +2,10 @@ import React, { useEffect, useState } from "react";
 import CurrentWeather from "../components/Weather/CurrentWeather";
 import ForecastWeather from "../components/Weather/ForecastWeather";
 
-
-
 const Weather: React.FC = () => {
   const [latitude, setLatitude] = useState<number | null>(null);
   const [longitude, setLongitude] = useState<number | null>(null);
   const [apiKey] = useState<string>(import.meta.env.VITE_WEATHER_API_KEY);
-
 
   const getLocation = () => {
     if (navigator.geolocation) {
