@@ -9,7 +9,8 @@ export const CardStyled = styled.div<{ show: boolean }>`
   border: 1px solid rgba(255, 255, 255, 0.3);
   margin-top: 15px;
   opacity: ${(props) => (props.show ? 1 : 0)};
-  transform: ${(props) => (props.show ? 'scale(1)' : 'scale(0.95)')};
+  width: 100%;
+  max-width: 50%;
   transition: opacity 0.5s ease, transform 0.5s ease;
 `;
 
