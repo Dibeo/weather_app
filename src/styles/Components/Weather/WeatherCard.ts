@@ -10,7 +10,7 @@ export const CardStyled = styled.div<{ show: boolean }>`
   margin-top: 15px;
   opacity: ${(props) => (props.show ? 1 : 0)};
   width: 100%;
-  max-width: 50%;
+  max-width: 750px;
   transition: opacity 0.5s ease, transform 0.5s ease;
 `;
 
