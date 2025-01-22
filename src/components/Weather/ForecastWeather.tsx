@@ -7,7 +7,7 @@ import {
   TextStyled,
   IconStyled,
 } from "../../styles/Components/Weather/WeatherCard";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 
 interface WeatherData {
@@ -27,12 +27,13 @@ const ForecastWeather: React.FC<WeatherProps> = ({
   longitude,
   apiKey,
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [forecast, setForecast] = useState<WeatherData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric&cnt=8&lang=fr`;
+    const currentLang = i18n.language;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric&cnt=8&lang=${currentLang}`;
 
     const fetchForecast = async () => {
       try {

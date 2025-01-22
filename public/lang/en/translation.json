@@ -4,6 +4,7 @@
     "current": "Current Weather",
     "forecast": "Forecast",
     "location": "Location",
+    "loading_current":"Loading current weather informations",
     "loading_forecast": "Loading forecast",
     "weather_forecast": "Weather forecast",
     "today": "Today",

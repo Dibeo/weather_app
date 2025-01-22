@@ -4,6 +4,7 @@
     "current": "Météo Actuelle",
     "forecast": "Prévisions",
     "location": "Localisation",
+    "loading_current": "Chargement de la météo",
     "loading_forecast": "Chargement des prévisions",
     "weather_forecast": "Prévisions Météo",
     "today": "Aujourd'hui",

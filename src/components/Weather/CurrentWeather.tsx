@@ -7,6 +7,7 @@ import {
   TextStyled,
   IconStyled,
 } from "../../styles/Components/Weather/WeatherCard";
+import { useTranslation } from "react-i18next";
 
 interface WeatherData {
   name: string;
@@ -26,18 +27,20 @@ const CurrentWeather: React.FC<WeatherProps> = ({
   longitude,
   apiKey,
 }) => {
+  const { t, i18n } = useTranslation();
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [showCard, setShowCard] = useState(false);
 
   useEffect(() => {
+    const currentLang = i18n.language;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric&lang=${currentLang}`
+
     const fetchWeather = async () => {
       try {
-        const weatherResponse = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric&lang=fr`
-        );
-        const weatherData: WeatherData = await weatherResponse.json();
-        setWeather(weatherData);
+        const response = await fetch(apiUrl);
+        const data : WeatherData = await response.json();
+        setWeather(data);
         setLoading(false);
         setShowCard(true);
       } catch (error) {
@@ -54,7 +57,7 @@ const CurrentWeather: React.FC<WeatherProps> = ({
       <div style={{ textAlign: "center", marginTop: "50px", color: "white" }}>
         <CircularProgress />
         <Typography variant="h6" gutterBottom>
-          Chargement de la météo...
+          {t("loading_current")}...
         </Typography>
       </div>
     );
