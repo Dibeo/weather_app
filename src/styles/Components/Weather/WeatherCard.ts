@@ -31,6 +31,15 @@ export const TextStyled = styled.p`
 `;
 
 export const IconStyled = styled.img`
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+export const ForecastIconStyled = styled.img`
   width: 50px;
   height: 50px;
   display: block;

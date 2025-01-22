@@ -77,7 +77,7 @@ const CurrentWeather: React.FC<WeatherProps> = ({
         </TextStyled>
         <IconStyled
           src={`https://openweathermap.org/img/wn/${weather?.weather[0].icon}@2x.png`}
-          alt="Weather Icon"
+          alt={t("weather_icon_alt")}
         />
       </CardBodyStyled>
     </CardStyled>

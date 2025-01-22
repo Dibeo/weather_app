@@ -5,7 +5,7 @@ import {
   CardBodyStyled,
   TitleStyled,
   TextStyled,
-  IconStyled,
+  ForecastIconStyled,
 } from "../../styles/Components/Weather/WeatherCard";
 import { Row, Col } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
@@ -97,7 +97,7 @@ const ForecastWeather: React.FC<WeatherProps> = ({
                     </TextStyled>
                   </Col>
                   <Col xs={4} className="text-right">
-                    <IconStyled
+                    <ForecastIconStyled
                       src={`https://openweathermap.org/img/wn/${elem.weather[0].icon}@2x.png`}
                       alt={t("weather_icon_alt")}
                     />
