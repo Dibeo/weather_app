@@ -27,7 +27,7 @@ const Weather: React.FC = () => {
         Swal.fire({
           title: t("error"),
           text: t("city_not_found"),
-          imageUrl: "/no-location.png",
+          imageUrl: "public/no-location.png",
           imageWidth: 300,
           imageHeight: 300,
           imageAlt: "City not found",

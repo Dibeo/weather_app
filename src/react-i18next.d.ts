@@ -1,6 +1,6 @@
 import 'react-i18next';
-import translationEN from '../public/lang/en/translation.json';
-import translationFR from '../public/lang/fr/translation.json';
+import translationEN from '/public/lang/en/translation.json';
+import translationFR from '/public/lang/fr/translation.json';
 
 type DefaultNamespace = typeof translationEN;
 
