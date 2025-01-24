@@ -12,3 +12,7 @@
   flex-direction: column;
   align-items: center;
 }
+
+:target {
+  scroll-margin-top: 250px;
+}
