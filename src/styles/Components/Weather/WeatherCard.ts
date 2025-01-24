@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const CardStyled = styled.div<{ show: boolean }>`
+export const CardStyled = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== "show",
+})<{ show: boolean }>`
   background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   backdrop-filter: blur(10px);
@@ -8,7 +10,7 @@ export const CardStyled = styled.div<{ show: boolean }>`
   padding: 20px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   margin-top: 15px;
-  opacity: ${(props) => (props.show ? 1 : 0)};
+  opacity: ${({show}) => (show ? 1 : 0)};
   width: 100%;
   max-width: 750px;
   transition: opacity 0.5s ease, transform 0.5s ease;
