@@ -62,7 +62,7 @@ const ForecastWeather: React.FC<WeatherProps> = ({
   }
 
   return (
-    <CardStyled show={true}>
+    <CardStyled show={true} id="forecast">
       <CardBodyStyled>
         <Row className="justify-content-center">
           <Col xs={12}>

@@ -97,7 +97,7 @@ const LocatedWeather: React.FC<WeatherProps> = ({
   }
 
   return (
-    <CardStyled show={showCard}>
+    <CardStyled show={showCard} id="location">
       <CardBodyStyled>
         <InputBase
           sx={{ ml: 1, flex: 1 }}

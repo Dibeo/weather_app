@@ -64,7 +64,7 @@ const CurrentWeather: React.FC<WeatherProps> = ({
   }
 
   return (
-    <CardStyled show={showCard}>
+    <CardStyled show={showCard} id="current">
       <CardBodyStyled>
         <TitleStyled>
           {weather?.name}, {weather?.sys.country}

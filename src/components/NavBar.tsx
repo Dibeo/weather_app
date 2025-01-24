@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Navbar as BootstrapNavbar,
   Nav,
@@ -7,7 +7,7 @@ import {
 } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useLocation } from "react-router-dom";
-import LanguageIcon from "@mui/icons-material/Language"; // Import de l'icône
+import LanguageIcon from "@mui/icons-material/Language";
 import "../styles/Components/NavBar.css";
 import languages from "../lang/lang";
 
@@ -15,6 +15,7 @@ const Navbar: React.FC = () => {
   const { i18n, t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
+  const [isNavbarExpanded, setIsNavbarExpanded] = useState(false);
 
   const handleLanguageChange = (languageCode: string) => {
     i18n.changeLanguage(languageCode);
@@ -23,22 +24,40 @@ const Navbar: React.FC = () => {
     window.location.reload();
   };
 
+  const handleNavClick = () => {
+    setIsNavbarExpanded(false);
+  };
+
   return (
-    <BootstrapNavbar expand="lg" className="glassmorphic-navbar" sticky="top">
+    <BootstrapNavbar
+      expand="lg"
+      className="glassmorphic-navbar"
+      sticky="top"
+      expanded={isNavbarExpanded}
+    >
       <Container>
         <BootstrapNavbar.Brand href="#home">{t("title")}</BootstrapNavbar.Brand>
-        <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
+        <BootstrapNavbar.Toggle
+          aria-controls="basic-navbar-nav"
+          onClick={() => setIsNavbarExpanded(!isNavbarExpanded)}
+        />
         <BootstrapNavbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#current">{t("current")}</Nav.Link>
-            <Nav.Link href="#forecast">{t("forecast")}</Nav.Link>
-            <Nav.Link href="#location">{t("location")}</Nav.Link>
+            <Nav.Link href="#current" onClick={handleNavClick}>
+              {t("current")}
+            </Nav.Link>
+            <Nav.Link href="#forecast" onClick={handleNavClick}>
+              {t("forecast")}
+            </Nav.Link>
+            <Nav.Link href="#location" onClick={handleNavClick}>
+              {t("location")}
+            </Nav.Link>
           </Nav>
           <Dropdown>
             <Dropdown.Toggle
               variant="transparent"
               id="dropdown-custom-components"
-              style={{color:'white'}}
+              style={{ color: "white" }}
             >
               <LanguageIcon />
             </Dropdown.Toggle>
