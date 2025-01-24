@@ -1,50 +1,81 @@
-# React + TypeScript + Vite
+# Partie 1 : Explication et description en français
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
+Ce projet est une application web développée en utilisant React, TypeScript et Vite. Elle permet d'afficher des informations météorologiques en temps réel. Deux fonctionnalités principales sont offertes :
 
-Currently, two official plugins are available:
+1. Une fonctionnalité de géolocalisation permettant d'afficher la météo actuelle de l'utilisateur en fonction de sa position géographique.
+2. Une fonctionnalité de recherche qui affiche la météo d'une ville spécifique en entrant simplement son nom.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Fonctionnement
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### 1. Géolocalisation
+- Lors du chargement initial de l'application, l'utilisateur est invité à autoriser l'accès à sa localisation.
+- Une fois la permission accordée, l'application utilise l'API Web Geolocation pour obtenir les coordonnées (latitude et longitude) de l'utilisateur.
+- Ces coordonnées sont ensuite transmises à une API météo tierce (par exemple, OpenWeatherMap) pour récupérer les données météorologiques actuelles.
 
-- Configure the top-level `parserOptions` property like this:
+### 2. Recherche par nom de ville
+- L'utilisateur peut saisir le nom d'une ville dans un champ de recherche.
+- Une requête est envoyée à l'API météo avec le nom de la ville, et les données correspondantes sont affichées.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Développement
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### 1. Technologies utilisées
+- **React** : Pour la création des composants et la gestion de l'état de l'application.
+- **TypeScript** : Pour assurer une typage stricte et une meilleure maintenance du code.
+- **Vite** : Pour un environnement de développement rapide et performant.
+- **CSS/SCSS** : Pour le stylisme de l'interface utilisateur.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### 2. Étapes principales du développement
+1. Initialisation du projet avec Vite.
+2. Mise en place des composants principaux :
+   - Composant pour afficher la météo actuelle.
+   - Composant pour gérer la recherche par ville.
+3. Intégration avec l'API météo.
+4. Gestion des erreurs (par exemple : ville non trouvée ou refus d'accès à la géolocalisation).
+5. Optimisation de l'interface utilisateur.
+
+---
+
+# Partie 2: Explanation and description in English
+
+## Introduction
+This project is a web application developed using React, TypeScript, and Vite. It displays real-time weather information and offers two main features:
+
+1. A geolocation feature to show the user's current weather based on their geographic location.
+2. A search feature to display the weather of a specific city by simply entering its name.
+
+---
+
+## Functionality
+
+### 1. Geolocation
+- Upon initial load, the application prompts the user to grant access to their location.
+- Once permission is granted, the app uses the Web Geolocation API to retrieve the user's coordinates (latitude and longitude).
+- These coordinates are sent to a third-party weather API (e.g., OpenWeatherMap) to fetch current weather data.
+
+### 2. City Name Search
+- The user can type a city name into a search field.
+- A request is sent to the weather API with the city name, and the corresponding weather data is displayed.
+
+---
+
+## Development
+
+### 1. Technologies Used
+- **React**: For creating components and managing application state.
+- **TypeScript**: To ensure strict typing and better code maintainability.
+- **Vite**: For a fast and efficient development environment.
+- **CSS/SCSS**: For styling the user interface.
+
+### 2. Main Development Steps
+1. Initializing the project with Vite.
+2. Setting up the main components:
+   - Component to display current weather.
+   - Component to handle city-based search.
+3. Integrating with the weather API.
+4. Handling errors (e.g., city not found or geolocation access denied).
+5. Optimizing the user interface.
