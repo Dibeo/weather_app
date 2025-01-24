@@ -5,6 +5,7 @@
   padding: 2rem;
   text-align: center;
   background-image: url('/background.jpg');
+  background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
