@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Routes, Route, useLocation, Navigate } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate, BrowserRouter as Router } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Weather from "./pages/Weather";
 import Navbar from "./components/NavBar";
@@ -17,7 +17,7 @@ const App: React.FC = () => {
   }, [location, i18n]);
 
   return (
-    <>
+    <Router basename="/">
       <Navbar />
       <Routes>
         <Route path="/" element={<Navigate to="/fr" />} />
@@ -25,7 +25,7 @@ const App: React.FC = () => {
           <Route key={language.code} path={`/${language.code}`} element={<Weather />} />
         ))}
       </Routes>
-    </>
+    </Router>
   );
 };
 
