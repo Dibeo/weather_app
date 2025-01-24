@@ -75,6 +75,7 @@ const Weather: React.FC = () => {
   const handleSearch = (search: string) => {
     setSearchTerm(search);
     searchCity(search);
+    console.log(searchTerm);
   };
 
   const getLocation = () => {
