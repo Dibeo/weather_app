@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { useTranslation } from "react-i18next";
 import "../styles/pages/Weather.css";
 import LocatedWeather from "../components/Weather/LocatedWeather";
+import Sundial from "../components/Weather/Sundial";
 
 const Weather: React.FC = () => {
   const { t } = useTranslation();
@@ -131,7 +132,7 @@ const Weather: React.FC = () => {
           <ForecastWeather latitude={latitude} longitude={longitude} apiKey={apiKey} />
         </>
       )}
-
+      <Sundial />
       <LocatedWeather latitude={latitude} longitude={longitude} apiKey={apiKey} onSearch={handleSearch} />
     </>
   );
