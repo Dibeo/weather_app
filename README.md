@@ -1,3 +1,4 @@
+[![wakatime](https://wakatime.com/badge/user/018c21c3-001e-4fd3-93ef-f7f9ec6d1fdb/project/28fea486-142c-450d-91b1-c6ab8e71dc14.svg)](https://wakatime.com/badge/user/018c21c3-001e-4fd3-93ef-f7f9ec6d1fdb/project/28fea486-142c-450d-91b1-c6ab8e71dc14)
 # Partie 1 : Explication et description en français
 
 ## Introduction
